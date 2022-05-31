@@ -118,7 +118,7 @@ public class AppInitializer {
 
 
 /*
-        // for getting one customer
+        // for getting one Item
         Item t3 = session.get(Item.class, "I003");
 
         System.out.println(t3.getItemName() + " - " + t3.getItemUnitPrice());
@@ -126,7 +126,7 @@ public class AppInitializer {
 
 
 /*
-        // for deleting customer
+        // for deleting item
         Item t3 = new Item();
         t3.setItemCode("C003");
         session.delete(t3);
