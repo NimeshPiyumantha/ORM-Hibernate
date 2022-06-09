@@ -2,6 +2,7 @@ package lk.ijse.hibernate.entity;
 
 import lk.ijse.hibernate.embeded.Name;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -14,6 +15,7 @@ import javax.persistence.Id;
 public class Customer {
     @Id
     private String cusId;
+    @Column
     private Name cusName;
     private double cusSalary;
     private String cusAddress;
@@ -69,6 +71,5 @@ public class Customer {
                 ", cusAddress='" + cusAddress + '\'' +
                 '}';
     }
-
 }
 

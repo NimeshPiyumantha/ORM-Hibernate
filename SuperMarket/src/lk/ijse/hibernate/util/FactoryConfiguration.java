@@ -2,6 +2,7 @@ package lk.ijse.hibernate.util;
 
 import lk.ijse.hibernate.entity.Customer;
 import lk.ijse.hibernate.entity.Item;
+import lk.ijse.hibernate.entity.OrderDetails;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -15,7 +16,7 @@ public class FactoryConfiguration {
     private final SessionFactory sessionFactory;
 
     private FactoryConfiguration() {
-        Configuration configuration = new Configuration().configure().addAnnotatedClass(Customer.class).addAnnotatedClass(Item.class);
+        Configuration configuration = new Configuration().configure().addAnnotatedClass(Customer.class).addAnnotatedClass(Item.class).addAnnotatedClass(OrderDetails.class);
         sessionFactory = configuration.buildSessionFactory();
     }
 

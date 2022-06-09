@@ -3,6 +3,9 @@ package lk.ijse.hibernate.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author : Nimesh Piyumantha
@@ -13,11 +16,12 @@ public class Item {
     @Id
     private String itemCode;
 
-    @Column(name = "item_name")
+    @Column
     private String itemName;
     private double itemUnitPrice;
     private String packSize;
     private int itemQtyOnHand;
+
 
     public Item() {
     }
@@ -68,5 +72,16 @@ public class Item {
 
     public void setItemQtyOnHand(int itemQtyOnHand) {
         this.itemQtyOnHand = itemQtyOnHand;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "itemCode='" + itemCode + '\'' +
+                ", itemName='" + itemName + '\'' +
+                ", itemUnitPrice=" + itemUnitPrice +
+                ", packSize='" + packSize + '\'' +
+                ", itemQtyOnHand=" + itemQtyOnHand +
+                '}';
     }
 }
