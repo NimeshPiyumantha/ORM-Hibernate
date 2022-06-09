@@ -4,7 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-
+/**
+ * @author : Nimesh Piyumantha
+ * @since : 0.1.0
+ **/
 @Entity(name = "Item")
 public class Item {
     @Id

@@ -1,28 +1,31 @@
 package lk.ijse.hibernate.entity;
 
-import javax.persistence.Column;
+import lk.ijse.hibernate.embeded.Name;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 
-@Entity(name = "customer")
+/**
+ * @author : Nimesh Piyumantha
+ * @since : 0.1.0
+ **/
+@Entity
 public class Customer {
     @Id
     private String cusId;
-
-    @Column(name = "Cus_name")
-    private String cusName;
+    private Name cusName;
     private double cusSalary;
     private String cusAddress;
 
     public Customer() {
     }
 
-    public Customer(String cusId, String cusName, String cusAddress, double cusSalary) {
+    public Customer(String cusId, Name cusName, double cusSalary, String cusAddress) {
         this.cusId = cusId;
         this.cusName = cusName;
-        this.cusAddress = cusAddress;
         this.cusSalary = cusSalary;
+        this.cusAddress = cusAddress;
     }
 
     public String getCusId() {
@@ -33,20 +36,12 @@ public class Customer {
         this.cusId = cusId;
     }
 
-    public String getCusName() {
+    public Name getCusName() {
         return cusName;
     }
 
-    public void setCusName(String cusName) {
+    public void setCusName(Name cusName) {
         this.cusName = cusName;
-    }
-
-    public String getCusAddress() {
-        return cusAddress;
-    }
-
-    public void setCusAddress(String cusAddress) {
-        this.cusAddress = cusAddress;
     }
 
     public double getCusSalary() {
@@ -57,15 +52,23 @@ public class Customer {
         this.cusSalary = cusSalary;
     }
 
+    public String getCusAddress() {
+        return cusAddress;
+    }
+
+    public void setCusAddress(String cusAddress) {
+        this.cusAddress = cusAddress;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
                 "cusId='" + cusId + '\'' +
-                ", cusName='" + cusName + '\'' +
-                ", cusAddress='" + cusAddress + '\'' +
+                ", cusName=" + cusName +
                 ", cusSalary=" + cusSalary +
+                ", cusAddress='" + cusAddress + '\'' +
                 '}';
     }
-}
 
+}
 
