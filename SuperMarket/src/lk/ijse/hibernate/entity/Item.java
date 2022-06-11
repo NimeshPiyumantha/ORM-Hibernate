@@ -34,6 +34,14 @@ public class Item {
         this.orderDetailList = orderDetailList;
     }
 
+    public Item(String itemCode, String description, String packSize, double unitPrice, int qtyOnHand) {
+        this.itemCode = itemCode;
+        this.description = description;
+        this.packSize = packSize;
+        this.unitPrice = unitPrice;
+        this.qtyOnHand = qtyOnHand;
+    }
+
     public String getItemCode() {
         return itemCode;
     }

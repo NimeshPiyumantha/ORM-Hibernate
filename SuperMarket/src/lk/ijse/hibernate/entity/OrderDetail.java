@@ -3,7 +3,6 @@ package lk.ijse.hibernate.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import java.math.BigDecimal;
 
 /**
  * @author : Nimesh Piyumantha
@@ -18,23 +17,14 @@ public class OrderDetail {
     @ManyToOne
     private Item item;
     private int orderQty;
-    private BigDecimal discount;
+    private double discount;
     private double unitPrice;
-    private BigDecimal total;
+    private double total;
 
     public OrderDetail() {
     }
 
-    public OrderDetail(Orders order, Item item, int orderQty, BigDecimal discount, double unitPrice, BigDecimal total) {
-        this.order = order;
-        this.item = item;
-        this.orderQty = orderQty;
-        this.discount = discount;
-        this.unitPrice = unitPrice;
-        this.total = total;
-    }
-
-    public OrderDetail(String orderId, Orders order, Item item, int orderQty, BigDecimal discount, double unitPrice, BigDecimal total) {
+    public OrderDetail(String orderId, Orders order, Item item, int orderQty, double discount, double unitPrice, double total) {
         this.orderId = orderId;
         this.order = order;
         this.item = item;
@@ -43,7 +33,6 @@ public class OrderDetail {
         this.unitPrice = unitPrice;
         this.total = total;
     }
-
 
     public String getOrderId() {
         return orderId;
@@ -78,11 +67,11 @@ public class OrderDetail {
         return null;
     }
 
-    public BigDecimal getDiscount() {
+    public double getDiscount() {
         return discount;
     }
 
-    public Object setDiscount(BigDecimal discount) {
+    public Object setDiscount(double discount) {
         this.discount = discount;
         return null;
     }
@@ -95,11 +84,11 @@ public class OrderDetail {
         this.unitPrice = unitPrice;
     }
 
-    public BigDecimal getTotal() {
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(BigDecimal total) {
+    public void setTotal(double total) {
         this.total = total;
     }
 
