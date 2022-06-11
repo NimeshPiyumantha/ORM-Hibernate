@@ -1,9 +1,8 @@
 package lk.ijse.hibernate.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,24 +15,23 @@ public class Item {
     @Id
     private String itemCode;
 
-    @Column
-    private String itemName;
-    private double itemUnitPrice;
+    private String description;
     private String packSize;
-    private int itemQtyOnHand;
-    private List<OrderDetails> orderDetails;
-
+    private double unitPrice;
+    private int qtyOnHand;
+    @OneToMany(mappedBy = "item")
+    private List<OrderDetail> orderDetailList = new ArrayList<>();
 
     public Item() {
     }
 
-    public Item(String itemCode, String itemName, double itemUnitPrice, String packSize, int itemQtyOnHand, List<OrderDetails> orderDetails) {
+    public Item(String itemCode, String description, String packSize, double unitPrice, int qtyOnHand, List<OrderDetail> orderDetailList) {
         this.itemCode = itemCode;
-        this.itemName = itemName;
-        this.itemUnitPrice = itemUnitPrice;
+        this.description = description;
         this.packSize = packSize;
-        this.itemQtyOnHand = itemQtyOnHand;
-        this.orderDetails = orderDetails;
+        this.unitPrice = unitPrice;
+        this.qtyOnHand = qtyOnHand;
+        this.orderDetailList = orderDetailList;
     }
 
     public String getItemCode() {
@@ -44,20 +42,12 @@ public class Item {
         this.itemCode = itemCode;
     }
 
-    public String getItemName() {
-        return itemName;
+    public String getDescription() {
+        return description;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
-
-    public double getItemUnitPrice() {
-        return itemUnitPrice;
-    }
-
-    public void setItemUnitPrice(double itemUnitPrice) {
-        this.itemUnitPrice = itemUnitPrice;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getPackSize() {
@@ -68,31 +58,39 @@ public class Item {
         this.packSize = packSize;
     }
 
-    public int getItemQtyOnHand() {
-        return itemQtyOnHand;
+    public double getUnitPrice() {
+        return unitPrice;
     }
 
-    public void setItemQtyOnHand(int itemQtyOnHand) {
-        this.itemQtyOnHand = itemQtyOnHand;
+    public void setUnitPrice(double unitPrice) {
+        this.unitPrice = unitPrice;
     }
 
-    public List<OrderDetails> getOrderDetails() {
-        return orderDetails;
+    public int getQtyOnHand() {
+        return qtyOnHand;
     }
 
-    public void setOrderDetails(List<OrderDetails> orderDetails) {
-        this.orderDetails = orderDetails;
+    public void setQtyOnHand(int qtyOnHand) {
+        this.qtyOnHand = qtyOnHand;
+    }
+
+    public List<OrderDetail> getOrderDetailList() {
+        return orderDetailList;
+    }
+
+    public void setOrderDetailList(List<OrderDetail> orderDetailList) {
+        this.orderDetailList = orderDetailList;
     }
 
     @Override
     public String toString() {
         return "Item{" +
                 "itemCode='" + itemCode + '\'' +
-                ", itemName='" + itemName + '\'' +
-                ", itemUnitPrice=" + itemUnitPrice +
+                ", description='" + description + '\'' +
                 ", packSize='" + packSize + '\'' +
-                ", itemQtyOnHand=" + itemQtyOnHand +
-                ", orderDetails=" + orderDetails +
+                ", unitPrice=" + unitPrice +
+                ", qtyOnHand=" + qtyOnHand +
+                ", orderDetailList=" + orderDetailList +
                 '}';
     }
 }
