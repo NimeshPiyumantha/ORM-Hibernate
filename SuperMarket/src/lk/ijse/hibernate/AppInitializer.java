@@ -35,7 +35,7 @@ public class AppInitializer {
 //        session.update(new Customer("C-001","Mr",name1,"Palawatta","Galle","Southern","80000"));
 //        session.update(new Customer("C-002","Mr",name2,"Palawatta","Galle","Southern","80000"));
 
-        //for getting one customer
+        //for getting on customer
 //        System.out.println(session.get(Customer.class,"C-001"));
 //        System.out.println(session.get(Customer.class,"C-002"));
 
@@ -53,7 +53,7 @@ public class AppInitializer {
 //        session.update(new Item("I-001","Fish Bun","medium",80.00,100));
 //        session.update(new Item("I-002","Bread","medium",180.00,130));
 
-        //for getting one item
+        //for getting on item
 //        System.out.println(session.get(Item.class,"I-001"));
 //        System.out.println(session.get(Item.class,"I-002"));
 
@@ -67,7 +67,7 @@ public class AppInitializer {
         session.save(new Orders("O-001", LocalDate.now(), session.get(Customer.class, "C-001")));
         session.save(new Orders("O-002", LocalDate.now(), session.get(Customer.class, "C-002")));
 
-        //for getting one orders
+        //for getting on orders
 //        System.out.println(session.get(Orders.class,"O-001"));
 //        System.out.println(session.get(Orders.class,"O-002"));
 
@@ -88,7 +88,7 @@ public class AppInitializer {
         session.save(new OrderDetail(orders.getOrderId(), orders, item, 4, 2.00, item.getUnitPrice(), 274.00));
         session.save(new OrderDetail(orders2.getOrderId(), orders2, item2, 4, 2.00, item.getUnitPrice(), 274.00));
 
-        //for getting one orderDetails
+        //for getting on orderDetails
 //        System.out.println(session.get(OrderDetail.class,"O-001"));
 //        System.out.println(session.get(OrderDetail.class,"O-002"));
 
