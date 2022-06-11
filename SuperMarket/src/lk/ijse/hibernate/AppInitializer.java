@@ -3,12 +3,9 @@ package lk.ijse.hibernate;
 import lk.ijse.hibernate.embeded.Name;
 import lk.ijse.hibernate.entity.Customer;
 import lk.ijse.hibernate.entity.Item;
-import lk.ijse.hibernate.entity.OrderDetails;
 import lk.ijse.hibernate.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
-import java.util.ArrayList;
 
 /**
  * @author : Nimesh Piyumantha
@@ -47,8 +44,8 @@ public class AppInitializer {
 
 
         /**     Save customer      */
-        session.save(c2);
-        session.save(c1);
+//        session.save(c2);
+//        session.save(c1);
 
         /**      for update     */
       /*  Customer c1 = new Customer();
@@ -97,9 +94,9 @@ public class AppInitializer {
 
 
         /**     Save customer    */
-        session.save(t1);
-        session.save(t2);
-        session.save(t3);
+//        session.save(t1);
+//        session.save(t2);
+//        session.save(t3);
 
         /** for update*/
    /*     Item t3 = new Item();
@@ -124,43 +121,6 @@ public class AppInitializer {
         /** 2nd way Delete */
      /*   Item t3 = session.get(Item.class, "I003");
         session.delete(t3);*/
-
-
-        //-----------OrderDetails-------------------//
-        OrderDetails orderDetails = new OrderDetails();
-        orderDetails.setOrderId("O-001");
-        orderDetails.setCusId(c1);
-        orderDetails.setItemCode(t1);
-        orderDetails.setItemCode(t3);
-        orderDetails.setQty(5);
-        orderDetails.setDiscount(2);
-
-        OrderDetails orderDetails2 = new OrderDetails();
-        orderDetails2.setOrderId("O-002");
-        orderDetails2.setCusId(c2);
-        orderDetails2.setItemCode(t2);
-        orderDetails2.setItemCode(t1);
-        orderDetails2.setQty(5);
-        orderDetails2.setDiscount(2);
-
-        ArrayList<Item> items = new ArrayList<>();
-        items.add(t1);
-        items.add(t2);
-        items.add(t3);
-
-        ArrayList<Item> items2 = new ArrayList<>();
-        items2.add(t1);
-        items2.add(t3);
-
-        ArrayList<Customer> customers1 = new ArrayList<>();
-        customers1.add(c1);
-
-        ArrayList<Customer> customers2 = new ArrayList<>();
-        customers2.add(c2);
-
-        session.save(orderDetails);
-        session.save(orderDetails2);
-
 
         transaction.commit();
         session.close();

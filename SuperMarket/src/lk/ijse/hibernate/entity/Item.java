@@ -21,17 +21,19 @@ public class Item {
     private double itemUnitPrice;
     private String packSize;
     private int itemQtyOnHand;
+    private List<OrderDetails> orderDetails;
 
 
     public Item() {
     }
 
-    public Item(String itemCode, String itemName, double itemUnitPrice, String packSize, int itemQtyOnHand) {
+    public Item(String itemCode, String itemName, double itemUnitPrice, String packSize, int itemQtyOnHand, List<OrderDetails> orderDetails) {
         this.itemCode = itemCode;
         this.itemName = itemName;
         this.itemUnitPrice = itemUnitPrice;
         this.packSize = packSize;
         this.itemQtyOnHand = itemQtyOnHand;
+        this.orderDetails = orderDetails;
     }
 
     public String getItemCode() {
@@ -74,6 +76,14 @@ public class Item {
         this.itemQtyOnHand = itemQtyOnHand;
     }
 
+    public List<OrderDetails> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderDetails> orderDetails) {
+        this.orderDetails = orderDetails;
+    }
+
     @Override
     public String toString() {
         return "Item{" +
@@ -82,6 +92,7 @@ public class Item {
                 ", itemUnitPrice=" + itemUnitPrice +
                 ", packSize='" + packSize + '\'' +
                 ", itemQtyOnHand=" + itemQtyOnHand +
+                ", orderDetails=" + orderDetails +
                 '}';
     }
 }
