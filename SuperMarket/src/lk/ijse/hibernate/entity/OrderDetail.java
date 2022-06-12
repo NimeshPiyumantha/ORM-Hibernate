@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class OrderDetail {
     @Id
-    private String orderId;
+    private String orderDetailsId;
     @ManyToOne
     private Orders order;
     @ManyToOne
@@ -24,8 +24,8 @@ public class OrderDetail {
     public OrderDetail() {
     }
 
-    public OrderDetail(String orderId, Orders order, Item item, int orderQty, double discount, double unitPrice, double total) {
-        this.orderId = orderId;
+    public OrderDetail(String orderDetailsId, Orders order, Item item, int orderQty, double discount, double unitPrice, double total) {
+        this.orderDetailsId = orderDetailsId;
         this.order = order;
         this.item = item;
         this.orderQty = orderQty;
@@ -34,12 +34,19 @@ public class OrderDetail {
         this.total = total;
     }
 
-    public String getOrderId() {
-        return orderId;
+    public OrderDetail(String orderDetailsId, int orderQty, double discount, double total) {
+        this.orderDetailsId = orderDetailsId;
+        this.orderQty = orderQty;
+        this.discount = discount;
+        this.total = total;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public String getOrderDetailsId() {
+        return orderDetailsId;
+    }
+
+    public void setOrderDetailsId(String orderDetailsId) {
+        this.orderDetailsId = orderDetailsId;
     }
 
     public Orders getOrder() {
@@ -62,18 +69,16 @@ public class OrderDetail {
         return orderQty;
     }
 
-    public Object setOrderQty(int orderQty) {
+    public void setOrderQty(int orderQty) {
         this.orderQty = orderQty;
-        return null;
     }
 
     public double getDiscount() {
         return discount;
     }
 
-    public Object setDiscount(double discount) {
+    public void setDiscount(double discount) {
         this.discount = discount;
-        return null;
     }
 
     public double getUnitPrice() {
@@ -95,7 +100,7 @@ public class OrderDetail {
     @Override
     public String toString() {
         return "OrderDetail{" +
-                "orderId='" + orderId + '\'' +
+                "orderDetailsId='" + orderDetailsId + '\'' +
                 ", order=" + order +
                 ", item=" + item +
                 ", orderQty=" + orderQty +

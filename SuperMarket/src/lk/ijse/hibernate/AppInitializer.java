@@ -85,8 +85,11 @@ public class AppInitializer {
         Item item2 = session.get(Item.class, "I-002");
         Orders orders2 = session.get(Orders.class, "O-002");
 
-        session.save(new OrderDetail(orders.getOrderId(), orders, item, 4, 2.00, item.getUnitPrice(), 274.00));
-        session.save(new OrderDetail(orders2.getOrderId(), orders2, item2, 4, 2.00, item.getUnitPrice(), 274.00));
+        session.save(new OrderDetail("ODI-001", orders, item, 4, 2.00, item.getUnitPrice(), 274.00));
+        session.save(new OrderDetail("ODI-002", orders2, item2, 4, 2.00, item.getUnitPrice(), 274.00));
+
+//        session.update(new OrderDetail("ODI-002", 5, 5.00,374.00));
+//        session.update(new OrderDetail("ODI-001", 5, 4.00,674.00));
 
         //for getting on orderDetails
 //        System.out.println(session.get(OrderDetail.class,"O-001"));
