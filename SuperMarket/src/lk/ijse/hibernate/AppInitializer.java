@@ -92,12 +92,12 @@ public class AppInitializer {
 //        session.update(new OrderDetail("ODI-001", 5, 4.00,674.00));
 
         //for getting on orderDetails
-//        System.out.println(session.get(OrderDetail.class,"O-001"));
-//        System.out.println(session.get(OrderDetail.class,"O-002"));
+//        System.out.println(session.get(OrderDetail.class,"ODI-001"));
+//        System.out.println(session.get(OrderDetail.class,"ODI-002"));
 
         //for delete
-//        session.delete(session.get(OrderDetail.class,"O-001"));
-//        session.delete(session.get(OrderDetail.class,"O-002"));
+//        session.delete(session.get(OrderDetail.class,"ODI-001"));
+//        session.delete(session.get(OrderDetail.class,"ODI-002"));
 
         transaction.commit();
         session.close();
